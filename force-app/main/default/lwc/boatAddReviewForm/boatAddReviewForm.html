@@ -1,0 +1,29 @@
+<template>
+    <!-- lightning data service code -->
+    <lightning-record-edit-form object-api-name={boatReviewObject} onsubmit={handleSubmit} onsuccess={handleSuccess}>
+        <lightning-layout multiple-rows vertical-align="start">
+            <lightning-layout-item size="8" padding="horizontal-small">
+                <label class="slds-form-element__label"><abbr class="slds-required" title="required">* </abbr>{labelSubject}</label>
+                <div class="slds-form-element__control">
+                    <lightning-input-field field-name={nameField} required variant="label-hidden" data-field="Name"></lightning-input-field>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="4" padding="horizontal-small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="record-name">{labelRating}</label>
+                    <div class="slds-form-element__control">
+                        <c-five-star-rating onratingchange={handleRatingChanged}></c-five-star-rating>
+                        <!-- add five star rating component -->
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item padding="horizontal-small">
+                <lightning-input-field field-name={commentField} required data-field="Comment"></lightning-input-field>
+            </lightning-layout-item>
+        </lightning-layout>
+        <div class="slds-align_absolute-center" style="margin-top: 5px">
+
+            <lightning-button icon-name="utility:save" class="slds-m-top_small" variant="brand" type="submit" name="Submit" label="Submit"></lightning-button>
+        </div>
+    </lightning-record-edit-form>
+</template>

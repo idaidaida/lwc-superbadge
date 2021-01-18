@@ -1,6 +1,6 @@
-// Use .soql files to store SOQL queries.
-// You can execute queries in VS Code by selecting the
-//     query text and running the command:
-//     SFDX: Execute SOQL Query with Currently Selected Text
+Double latitude = 35.3992704;
+Double longitude = 139.5785728;
 
-SELECT Id, Name FROM Account
+
+List<Boat__c> boat = [SELECT Geolocation__Latitude__s,Geolocation__Longitude__s,Price__c,Picture__c,Year_Built__c,Description__c,BoatType__r.Name,Name,Boat_Image__c,Contact__r.Name FROM Boat__c ORDER BY DISTANCE(Geolocation__c, GEOLOCATION(:latitude, :longitude), 'km') ];
+System.debug(boat);
